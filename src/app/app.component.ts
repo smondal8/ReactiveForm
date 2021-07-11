@@ -18,13 +18,13 @@ export class AppComponent {
   registrationForm = this.fb.group({
     userName : ['',[Validators.required,Validators.minLength(3),customNameValidator]],
     password : [],
-    confirmPassword : ['',confirmPassword],
+    confirmPassword : [''],
     address : this.fb.group({
       city : [],
       state : [],
       postalCode : []
     })
-  });
+  },{Validators : confirmPassword});
   // registrationForm = new FormGroup({
   //   userName : new FormControl('Soumya'),
   //   password : new FormControl(),

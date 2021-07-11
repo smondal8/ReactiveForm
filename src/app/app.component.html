@@ -22,7 +22,7 @@
 
     <div class="form-group">
       <label>Confirm passowrd</label>
-      <input [class.is-invalid] = "registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched" formControlName = "confirmPassword" type="password" class="form-control">
+      <input [class.is-invalid] = "registrationForm.get('confirmPassword')?.errors?.unMatchedpass" formControlName = "confirmPassword" type="password" class="form-control">
       <small *ngIf = "registrationForm.get('confirmPassword')?.errors?.unMatchedpass" class="text-danger">Passwords does not match</small>
     </div>
     <div formGroupName = "address">
