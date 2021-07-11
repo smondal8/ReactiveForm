@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { fbind } from 'q';
 import { customNameValidator } from 'src/shared/userNameValidator';
 import { confirmPassword } from 'src/shared/passwordValidator'; 
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,8 @@ import { confirmPassword } from 'src/shared/passwordValidator';
 })
 export class AppComponent {
   constructor(private fb : FormBuilder){
-
   }
+  currentApplicationVersion = environment.appVersion;
   title = 'ReactiveForm';
   registrationForm = this.fb.group({
     userName : ['',[Validators.required,Validators.minLength(3),customNameValidator]],
@@ -35,6 +36,7 @@ export class AppComponent {
   //     postalCode : new FormControl()
   //   })
   // });
+  
   ResetForm(){
     this.registrationForm.setValue({
       userName : '',
@@ -46,6 +48,9 @@ export class AppComponent {
         postalCode : ''
       }
     })
+  }
+  ngOnInit(){
+    console.log("version => "+this.currentApplicationVersion);
   }
   ResetAddress(){
     this.registrationForm.patchValue({

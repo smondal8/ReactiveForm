@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <H2>Registration form</H2>
   {{registrationForm.value|json}} 
+  {{currentApplicationVersion}}
   <form [formGroup]="registrationForm">
     <div class="form-group">
       <label>Username</label>
